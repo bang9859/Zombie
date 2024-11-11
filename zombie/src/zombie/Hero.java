@@ -7,5 +7,22 @@ public class Hero extends Unit{
 		super(pos, hp, maxPower);
 		this.potionCnt = potionCnt;
 	}
+	
+	
+	public void recover() {
+		if(this.potionCnt==0) {
+			System.out.println("물약을 모두 사용하였습니다.");
+			return;
+		}
+		this.hp+=100;
+		this.potionCnt--;
+		System.out.printf("포션 사용으로 현재 용사의 채력 %d",this.hp);
+	}
+
+	@Override
+	public void Attack(Unit target) {
+		
+	}
+	
 
 }
