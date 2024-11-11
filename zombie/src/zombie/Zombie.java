@@ -1,5 +1,7 @@
 package zombie;
 
+import java.util.Random;
+
 public class Zombie extends Unit{
 
 	protected Zombie(int pos, int hp, int maxPower) {
@@ -7,7 +9,9 @@ public class Zombie extends Unit{
 	}
 
 	@Override
-	public void Attack(Unit unit) {
+	public void Attack() {
+		
+		int power = ZombieGame.ran.nextInt(getMaxPower());
 		
 	}
 

@@ -1,9 +1,11 @@
 package zombie;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class ZombieGame {
 	private Scanner sc = new Scanner(System.in);
+	public static Random ran = new Random();
 	
 	private final int MOVE = 1;
 	private final int EXIT = 2;
@@ -33,12 +35,12 @@ public class ZombieGame {
 
 	private void play() {
 		
-		if(hero.pos ==5) {
+		if(hero.getPos() ==5) {
 			zombieRound();
-		}else if(hero.pos==9) {
+		}else if(hero.getPos()==9) {
 			bossRound();
 		}else {
-			if(hero.pos == 10) {
+			if(hero.getPos() == 10) {
 				System.out.println("게임 승리!!");
 				isRun = false;
 				return;
@@ -46,7 +48,7 @@ public class ZombieGame {
 			showMenu();
 			int sel = input("입력:");
 			if(sel ==MOVE) {
-				hero.pos+=1;
+				hero.setPos(1);
 			}else if(sel == EXIT) {
 				isRun = false;
 			}
@@ -55,13 +57,13 @@ public class ZombieGame {
 	}
 
 	private void bossRound() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	private void zombieRound() {
-		// TODO Auto-generated method stub
-		
+		while(true) {
+			
+		}
 	}
 
 	private int input(String msg) {
