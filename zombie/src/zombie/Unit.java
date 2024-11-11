@@ -9,7 +9,5 @@ abstract public class Unit {
 		this.hp = hp;
 		this.maxPower = maxPower;
 	}
-	public void Attack() {
-		
-	}
+	public abstract void Attack(Unit unit);
 }

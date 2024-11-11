@@ -6,4 +6,9 @@ public class Zombie extends Unit{
 		super(pos, hp, maxPower);
 	}
 
+	@Override
+	public void Attack(Unit unit) {
+		
+	}
+
 }
