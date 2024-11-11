@@ -79,7 +79,7 @@ public class ZombieGame {
 	}
 
 	private void showMenu() {
-		String msg = String.format("현재 위치: %d\n1)이동하기 2)종료하기", hero.pos);
+		String msg = String.format("현재 위치: %d\n1)이동하기 2)종료하기", hero.getPos());
 		System.out.println(msg);
 	}
 
