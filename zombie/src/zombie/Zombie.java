@@ -1,5 +1,9 @@
 package zombie;
 
-public class Zombie {
+public class Zombie extends Unit{
+
+	protected Zombie(int pos, int hp, int maxPower) {
+		super(pos, hp, maxPower);
+	}
 
 }
