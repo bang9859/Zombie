@@ -16,7 +16,7 @@ public class Zombie extends Unit {
 		} else {
 			target.setHp(-power);
 		}
-		String message = String.format("[좀비 공격] 퍽 [%d(-%d)/%d]", currentHeroHp, power, target.getHp());
+		String message = String.format("[좀비 공격] 퍽 [%d(-%d)/%d]", target.getHp(), power, currentHeroHp);
 		System.out.println(message);
 	}
 
