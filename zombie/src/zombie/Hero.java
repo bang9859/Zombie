@@ -7,7 +7,7 @@ public class Hero extends Unit {
 		super(pos, hp, maxPower);
 		this.potionCnt = potionCnt;
 	}
- 
+
 	@Override
 	protected void attack(Unit target) {
 		int power = ZombieGame.ran.nextInt(getMaxPower()) + 1;
