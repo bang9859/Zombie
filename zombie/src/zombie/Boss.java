@@ -18,8 +18,16 @@ public class Boss extends Zombie {
 
 	@Override
 	protected void attack(Unit target) {
+		int power;
+		if(getHp()>=100) {
+			System.out.println("페이즈 1");
+			power = ZombieGame.ran.nextInt(getMaxPower()) + 1;
+		}else {
+			System.out.println("페이즈 2");
+			power = ZombieGame.ran.nextInt(getMaxPower()+20) + 1;
+		}
 		int randSkill = ZombieGame.ran.nextInt(4);
-		int power = ZombieGame.ran.nextInt(getMaxPower()) + 1;
+		
 		if (randSkill == 1) {
 			power = power * 2;
 			System.out.println("보스 특수스킬 발동[공격력 2배]");

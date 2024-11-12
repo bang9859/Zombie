@@ -25,9 +25,9 @@ public class ZombieGame {
 	}
 
 	// 용사/좀비/보스 생성
-	Hero hero = new Hero(1, 200, 40, 2);
+	Hero hero = new Hero(1, 200, 30, 2);
 	Subordinate subordinate = new Subordinate(6, 100, 20);
-	Boss boss = new Boss(9, 200, 30, 100);
+	Boss boss = new Boss(9, 200, 40, 100);
 
 	protected void run() {
 		while (isRun) {
