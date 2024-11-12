@@ -1,7 +1,7 @@
 package zombie;
 
 public class Zombie extends Unit {
-
+	private int power;
 	protected Zombie(int pos, int hp, int maxPower) {
 		super(pos, hp, maxPower);
 	}
@@ -20,4 +20,8 @@ public class Zombie extends Unit {
 		System.out.println(message);
 	}
 
+	public int getPower() {
+		return this.power;
+	}
+	
 }
