@@ -20,5 +20,5 @@
 ![클래스 다이어그램](https://github.com/bang9859/Zombie/blob/master/zombie.drawio%20(1).png)
 
 > #### Demo
-> !![zombie demo](https://github.com/user-attachments/assets/ebb27aca-569a-409f-8bb1-819faa628970)
+> ![zombie demo](https://github.com/user-attachments/assets/ebb27aca-569a-409f-8bb1-819faa628970)
 
