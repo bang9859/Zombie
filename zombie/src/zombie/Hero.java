@@ -20,7 +20,7 @@ public class Hero extends Unit{
 		} else {
 			target.setHp(-power);
 		}
-		String message = String.format("푹 상대 체력: [%d(-%d)/%d]", currentZombieHp, power, target.getHp());
+		String message = String.format("[HERO 공격] 푹 상대 체력: [%d(-%d)/%d]", currentZombieHp, power, target.getHp());
 		System.out.println(message);
 	}
 	
@@ -31,7 +31,7 @@ public class Hero extends Unit{
 		}
 		setHp(100);
 		this.potionCnt--;
-		System.out.printf("포션 사용으로 현재 용사의 채력 %d",getHp());
+		System.out.printf("포션 사용으로 현재 용사의 채력 %d\n",getHp());
 	}
 
 	
