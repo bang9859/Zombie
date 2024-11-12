@@ -61,7 +61,7 @@ public class ZombieGame {
 	private void zombieRound() {
 		System.out.println("부하 좀비를 만났습니다. 공격모드로 전환합니다.");
 		while (true) {
-			if (checkEnd())
+			if (checkSusbordinateRoundEnd())
 				break;
 			int sel = input("1)공격 2)물약 \n입력");
 			if (sel == ATTACK) {
@@ -74,7 +74,7 @@ public class ZombieGame {
 		}
 	}
 
-	private boolean checkEnd() {
+	private boolean checkSusbordinateRoundEnd() {
 		if (hero.getHp() == 0) {
 			isRun = false;
 			System.out.println("HERO DIE....");
@@ -97,7 +97,37 @@ public class ZombieGame {
 
 	private void bossRound() {
 		System.out.println("보스 좀비를 만났습니다. 공격모드로 전환합니다.");
+		while (true) {
+			if (checkBossRoundEnd())
+				break;
+			int sel = input("1)공격 2)물약 \n입력");
+			if (sel == ATTACK) {
+				fightBoss();
+			} else if (sel == POTION) {
+				hero.recover();
+			} else {
+				System.out.println("다시 입력해주세요.");
+			}
+		}
+	}
 
+	private void fightBoss() {
+		boss.attack(hero);
+		hero.attack(boss);
+	}
+
+	private boolean checkBossRoundEnd() {
+		if (hero.getHp() == 0) {
+			isRun = false;
+			System.out.println("HERO DIE....");
+			return true;
+		}
+		if (boss.getHp() == 0) {
+			System.out.println("STAGE CLEAR~!!");
+			hero.setPos(1);
+			return true;
+		}
+		return false;
 	}
 
 	private int input(String msg) {
