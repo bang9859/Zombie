@@ -17,6 +17,6 @@
   * 단, 영웅의 체력이 0이 되었다면 게임 실패이다.
 
 > #### Class Diagram
-
+![클래스 다이어그램](https://github.com/bang9859/Zombie/blob/master/zombie.drawio%20(1).png)
 
 > #### Demo
