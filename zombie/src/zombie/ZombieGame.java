@@ -25,9 +25,9 @@ public class ZombieGame {
 	}
 
 	// 용사/좀비/보스 생성
-	Hero hero = new Hero(1, 100, 40, 2);
+	Hero hero = new Hero(1, 300, 40, 2);
 	Subordinate subordinate = new Subordinate(6, 100, 20);
-	Boss boss = new Boss(9, 300, 50, 50);
+	Boss boss = new Boss(9, 200, 30, 100);
 
 	protected void run() {
 		while (isRun) {
@@ -117,12 +117,12 @@ public class ZombieGame {
 	}
 
 	private boolean checkBossRoundEnd() {
-		if (hero.getHp() == 0) {
+		if (hero.getHp() <= 0) {
 			isRun = false;
 			System.out.println("HERO DIE....");
 			return true;
 		}
-		if (boss.getHp() == 0) {
+		if (boss.getHp() <= 0) {
 			System.out.println("STAGE CLEAR~!!");
 			hero.setPos(1);
 			return true;

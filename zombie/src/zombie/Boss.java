@@ -11,17 +11,18 @@ public class Boss extends Zombie {
 	public int getSheild() {
 		return shield;
 	}
+
 	public void setSheild(int power) {
-		shield+=power;
+		shield += power;
 	}
-	
+
 	@Override
 	protected void attack(Unit target) {
 		int randSkill = ZombieGame.ran.nextInt(4);
 		int power = ZombieGame.ran.nextInt(getMaxPower()) + 1;
-		if (randSkill == 1) {
-			power = power * 3;
-			System.out.println("보스 특수스킬 발동[공격력 3배]");
+		if (randSkill == 0) {
+			power = power * 2;
+			System.out.println("보스 특수스킬 발동[공격력 2배]");
 		}
 		int currentHeroHp = target.getHp();
 		if (target.getHp() - power < 0) {
@@ -29,7 +30,7 @@ public class Boss extends Zombie {
 		} else {
 			target.setHp(-power);
 		}
-		String message = String.format("퍽퍽 [%d(-%d)/%d]", currentHeroHp, power, target.getHp());
+		String message = String.format("[BOSS 공격] 팍 [%d(-%d)/%d]", target.getHp(), power, currentHeroHp);
 		System.out.println(message);
 	}
 

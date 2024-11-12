@@ -19,10 +19,15 @@ public class Hero extends Unit {
 			} else {
 				int bossCurrentSheild = boss.getSheild();
 				boss.setSheild(-boss.getSheild());
+				if (boss.getHp() - power < 0) {
+					boss.setHp(boss.getHp());
+				} else {
+					boss.setHp(-power);
+				}
 				boss.setHp(-power + bossCurrentSheild);
 			}
-			String message = String.format("[HERO 공격] 푹 보스 좀비 체력: 쉴드:%d [%d(-%d)/%d]", boss.getSheild(), getHp(), power,
-					currentBossHp);
+			String message = String.format("[HERO 공격] 푹 보스 좀비 체력: 쉴드:%d [%d(-%d)/%d]", boss.getSheild(), boss.getHp(),
+					power, currentBossHp);
 
 			System.out.println(message);
 
