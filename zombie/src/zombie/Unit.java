@@ -18,16 +18,22 @@ abstract public class Unit {
 	public void setPos(int move) {
 		this.pos += move;
 	}
-	
+
 	public int getHp() {
 		return this.hp;
 	}
-	
-	public void setHp(int power){
-		this.hp +=power;
+
+	public void setHp(int power) {
+		this.hp += power;
 	}
+
 	public int getMaxPower() {
 		return this.maxPower;
 	}
+	
+	public void setMaxPower(int addPower) {
+		this.maxPower+=addPower; 
+	}
+
 	protected abstract void attack(Unit unit);
 }

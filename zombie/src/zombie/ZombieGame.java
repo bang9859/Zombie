@@ -25,7 +25,7 @@ public class ZombieGame {
 	}
 
 	// 용사/좀비/보스 생성
-	Hero hero = new Hero(1, 300, 40, 2);
+	Hero hero = new Hero(1, 200, 40, 2);
 	Subordinate subordinate = new Subordinate(6, 100, 20);
 	Boss boss = new Boss(9, 200, 30, 100);
 
@@ -82,10 +82,17 @@ public class ZombieGame {
 		}
 		if (subordinate.getHp() == 0) {
 			System.out.println("STAGE CLEAR~!!");
+			heroLevelUp();
 			hero.setPos(1);
 			return true;
 		}
 		return false;
+	}
+
+	private void heroLevelUp() {
+		// 몬스터 처치시 공격력 증가 및 피 회복
+		hero.setHp(200-hero.getHp());
+		hero.setMaxPower(10);
 	}
 
 	private void fightSusbordinate() {
