@@ -17,14 +17,12 @@ public class Hero extends Unit {
 			if (boss.getSheild() - power > 0) {
 				boss.setSheild(-power);
 			} else {
-				int bossCurrentSheild = boss.getSheild();
 				boss.setSheild(-boss.getSheild());
 				if (boss.getHp() - power < 0) {
 					boss.setHp(-boss.getHp());
 				} else {
 					boss.setHp(-power);
 				}
-				boss.setHp(-power + bossCurrentSheild);
 			}
 			String message = String.format("[HERO %d 데미지로 공격!] 푹 보스 좀비 체력: 쉴드:%d [%d/%d]", power, boss.getSheild(),
 					boss.getHp(), currentBossHp);

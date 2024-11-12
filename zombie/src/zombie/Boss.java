@@ -20,7 +20,7 @@ public class Boss extends Zombie {
 	protected void attack(Unit target) {
 		int randSkill = ZombieGame.ran.nextInt(4);
 		int power = ZombieGame.ran.nextInt(getMaxPower()) + 1;
-		if (randSkill == 0) {
+		if (randSkill == 1) {
 			power = power * 2;
 			System.out.println("보스 특수스킬 발동[공격력 2배]");
 		}
