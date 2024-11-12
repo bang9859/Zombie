@@ -10,16 +10,33 @@ public class Hero extends Unit {
 
 	@Override
 	protected void attack(Unit target) {
-
 		int power = ZombieGame.ran.nextInt(getMaxPower()) + 1;
-		int currentZombieHp = target.getHp();
-		if (target.getHp() - power < 0) {
-			target.setHp(-target.getHp());
+		if (target instanceof Boss) {
+			Boss boss = (Boss) target;
+			int currentBossHp = boss.getHp();
+			if (boss.getSheild() - power > 0) {
+				boss.setSheild(-power);
+			} else {
+				int bossCurrentSheild = boss.getSheild();
+				boss.setSheild(-boss.getSheild());
+				boss.setHp(-power + bossCurrentSheild);
+			}
+			String message = String.format("[HERO 공격] 푹 보스 좀비 체력: 쉴드:%d [%d(-%d)/%d]", boss.getSheild(), getHp(), power,
+					currentBossHp);
+
+			System.out.println(message);
+
 		} else {
-			target.setHp(-power);
+			int currentZombieHp = target.getHp();
+			if (target.getHp() - power < 0) {
+				target.setHp(-target.getHp());
+			} else {
+				target.setHp(-power);
+			}
+			String message = String.format("[HERO 공격] 푹 부하 좀비 체력: [%d(-%d)/%d]", target.getHp(), power,
+					currentZombieHp);
+			System.out.println(message);
 		}
-		String message = String.format("[HERO 공격] 푹 상대 체력: [%d(-%d)/%d]", target.getHp(), power, currentZombieHp);
-		System.out.println(message);
 	}
 
 	protected void recover() {

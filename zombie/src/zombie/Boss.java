@@ -1,13 +1,20 @@
 package zombie;
 
 public class Boss extends Zombie {
-	protected int shield;
+	private int shield;
 
 	protected Boss(int pos, int hp, int maxPower, int shield) {
 		super(pos, hp, maxPower);
 		this.shield = shield;
 	}
 
+	public int getSheild() {
+		return shield;
+	}
+	public void setSheild(int power) {
+		shield+=power;
+	}
+	
 	@Override
 	protected void attack(Unit target) {
 		int randSkill = ZombieGame.ran.nextInt(4);
