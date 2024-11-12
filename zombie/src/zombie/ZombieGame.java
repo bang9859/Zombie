@@ -24,7 +24,7 @@ public class ZombieGame {
 
 	// 용사/좀비/보스 생성
 	Hero hero = new Hero(1, 100, 40, 2);
-	Zombie zombie = new Zombie(6, 100, 20);
+	Subordinate subordinate = new Subordinate(6, 100, 20);
 	Boss boss = new Boss(9, 300, 50, 50);
 
 	protected void run() {
@@ -55,19 +55,19 @@ public class ZombieGame {
 		}
 		
 	}
-
-	private void bossRound() {
-		System.out.println("보스를 만났습니다. 공격모드로 전환합니다.");
-		
-		
-	}
-
 	private void zombieRound() {
-		System.out.println("좀비를 만났습니다. 공격모드로 전환합니다.");
+		System.out.println("부하 좀비를 만났습니다. 공격모드로 전환합니다.");
 		while(true) {
 			
 		}
 	}
+
+	private void bossRound() {
+		System.out.println("보스 좀비를 만났습니다. 공격모드로 전환합니다.");
+		
+		
+	}
+
 
 	private int input(String msg) {
 		System.out.print(msg + " : ");
