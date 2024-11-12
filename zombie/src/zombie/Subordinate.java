@@ -10,7 +10,7 @@ public class Subordinate extends Zombie implements Regenable{
 	public void regenable() {
 		int randomHeal = ZombieGame.ran.nextInt(getHp())+1;
 		setHp(randomHeal);
-		System.out.println("피를 자동으로 회복하였습니다.");
+		System.out.printf("부하 좀비가 피를 %d만큼 회복하였습니다. 현재 부하좀비 HP: %d\n",randomHeal,getHp());
 	}
 }
  
