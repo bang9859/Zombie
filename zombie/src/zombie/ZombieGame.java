@@ -6,15 +6,14 @@ import java.util.Scanner;
 public class ZombieGame {
 	private Scanner sc = new Scanner(System.in);
 	public static Random ran = new Random();
-	
+
 	private final int MOVE = 1;
 	private final int EXIT = 2;
 	private final int ATTACK = 1;
 	private final int POTION = 2;
-	
-	
+
 	private boolean isRun = true;
-	
+
 	private ZombieGame() {
 
 	}
@@ -37,50 +36,53 @@ public class ZombieGame {
 	}
 
 	private void play() {
-		
-		if(hero.getPos() ==5) {
+
+		if (hero.getPos() == 5) {
 			zombieRound();
-		}else if(hero.getPos()==9) {
+		} else if (hero.getPos() == 9) {
 			bossRound();
-		}else {
-			if(hero.getPos() == 10) {
+		} else {
+			if (hero.getPos() == 10) {
 				System.out.println("게임 승리!!");
 				isRun = false;
 				return;
 			}
 			showMenu();
 			int sel = input("입력:");
-			if(sel ==MOVE) {
+			if (sel == MOVE) {
 				hero.setPos(1);
-			}else if(sel == EXIT) {
+			} else if (sel == EXIT) {
 				isRun = false;
 			}
 		}
-		
+
 	}
+
 	private void zombieRound() {
 		System.out.println("부하 좀비를 만났습니다. 공격모드로 전환합니다.");
-		while(true) {
-			if(checkEnd())
+		while (true) {
+			if (checkEnd())
 				break;
 			int sel = input("1)공격 2)물약 \n입력");
-			if(sel==ATTACK) {
+			if (sel == ATTACK) {
 				fightSusbordinate();
-			}else if(sel==POTION) {
+			} else if (sel == POTION) {
 				hero.recover();
-			}else {
+			} else {
 				System.out.println("다시 입력해주세요.");
 			}
 		}
 	}
 
 	private boolean checkEnd() {
-		if(hero.getHp()==0) {
+		if (hero.getHp() == 0) {
 			isRun = false;
 			System.out.println("HERO DIE....");
 			return true;
-		}if(subordinate.getHp()==0) {
+		}
+		if (subordinate.getHp() == 0) {
 			System.out.println("STAGE CLEAR~!!");
+			hero.setPos(1);
 			return true;
 		}
 		return false;
@@ -89,15 +91,14 @@ public class ZombieGame {
 	private void fightSusbordinate() {
 		subordinate.attack(hero);
 		hero.attack(subordinate);
-		subordinate.regenHp();
+		if (subordinate.getHp() > 0)
+			subordinate.regenHp();
 	}
 
 	private void bossRound() {
 		System.out.println("보스 좀비를 만났습니다. 공격모드로 전환합니다.");
-		
-		
-	}
 
+	}
 
 	private int input(String msg) {
 		System.out.print(msg + " : ");
