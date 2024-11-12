@@ -10,7 +10,7 @@ public class Hero extends Unit{
 	
 
 	
-	public void recover() {
+	protected void recover() {
 		if(this.potionCnt==0) {
 			System.out.println("물약을 모두 사용하였습니다.");
 			return;
@@ -21,9 +21,8 @@ public class Hero extends Unit{
 	}
 
 	@Override
-	public void Attack(Unit target) {
-
-		int power = ZombieGame.ran.nextInt(getMaxPower());
+	protected void attack(Unit target) {
+		int power = ZombieGame.ran.nextInt(getMaxPower())+1;
 		if (target.getHp() - power < 0) {
 			target.setHp(-target.getHp());
 		} else {

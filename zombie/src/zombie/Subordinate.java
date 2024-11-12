@@ -4,7 +4,6 @@ public class Subordinate extends Zombie implements Regenable{
 
 	protected Subordinate(int pos, int hp, int maxPower) {
 		super(pos, hp, maxPower);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
