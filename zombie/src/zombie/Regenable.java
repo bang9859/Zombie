@@ -1,5 +1,5 @@
 package zombie;
 
 public interface Regenable {
-	void Regenable();
+	void regenable();
 }
