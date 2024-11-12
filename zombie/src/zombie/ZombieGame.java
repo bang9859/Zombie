@@ -57,10 +57,13 @@ public class ZombieGame {
 	}
 
 	private void bossRound() {
+		System.out.println("보스를 만났습니다. 공격모드로 전환합니다.");
+		
 		
 	}
 
 	private void zombieRound() {
+		System.out.println("좀비를 만났습니다. 공격모드로 전환합니다.");
 		while(true) {
 			
 		}

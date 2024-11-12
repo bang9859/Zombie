@@ -29,5 +29,5 @@ abstract public class Unit {
 	public int getMaxPower() {
 		return this.maxPower;
 	}
-	public abstract int Attack();
+	public abstract void Attack(Unit unit);
 }

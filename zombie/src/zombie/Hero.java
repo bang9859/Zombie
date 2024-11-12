@@ -21,8 +21,14 @@ public class Hero extends Unit{
 	}
 
 	@Override
-	public void Attack() {
-		
+	public void Attack(Unit target) {
+
+		int power = ZombieGame.ran.nextInt(getMaxPower());
+		if (target.getHp() - power < 0) {
+			target.setHp(-target.getHp());
+		} else {
+			target.setHp(-power);
+		}
 	}
 	
 
