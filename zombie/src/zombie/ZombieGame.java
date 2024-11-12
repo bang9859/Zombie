@@ -9,6 +9,9 @@ public class ZombieGame {
 	
 	private final int MOVE = 1;
 	private final int EXIT = 2;
+	private final int ATTACK = 1;
+	private final int POTION = 2;
+	
 	
 	private boolean isRun = true;
 	
@@ -58,8 +61,35 @@ public class ZombieGame {
 	private void zombieRound() {
 		System.out.println("부하 좀비를 만났습니다. 공격모드로 전환합니다.");
 		while(true) {
-			
+			if(checkEnd())
+				break;
+			int sel = input("1)공격 2)물약 \n입력");
+			if(sel==ATTACK) {
+				fightSusbordinate();
+			}else if(sel==POTION) {
+				hero.recover();
+			}else {
+				System.out.println("다시 입력해주세요.");
+			}
 		}
+	}
+
+	private boolean checkEnd() {
+		if(hero.getHp()==0) {
+			isRun = false;
+			System.out.println("HERO DIE....");
+			return true;
+		}if(subordinate.getHp()==0) {
+			System.out.println("STAGE CLEAR~!!");
+			return true;
+		}
+		return false;
+	}
+
+	private void fightSusbordinate() {
+		subordinate.attack(hero);
+		hero.attack(subordinate);
+		subordinate.regenHp();
 	}
 
 	private void bossRound() {
