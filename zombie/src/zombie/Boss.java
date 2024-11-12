@@ -30,7 +30,7 @@ public class Boss extends Zombie {
 		} else {
 			target.setHp(-power);
 		}
-		String message = String.format("[BOSS 공격] 팍 [%d(-%d)/%d]", target.getHp(), power, currentHeroHp);
+		String message = String.format("[BOSS %d 데미지로 공격!] 팍 [%d/%d]", power, target.getHp(), currentHeroHp);
 		System.out.println(message);
 	}
 

@@ -20,14 +20,14 @@ public class Hero extends Unit {
 				int bossCurrentSheild = boss.getSheild();
 				boss.setSheild(-boss.getSheild());
 				if (boss.getHp() - power < 0) {
-					boss.setHp(boss.getHp());
+					boss.setHp(-boss.getHp());
 				} else {
 					boss.setHp(-power);
 				}
 				boss.setHp(-power + bossCurrentSheild);
 			}
-			String message = String.format("[HERO 공격] 푹 보스 좀비 체력: 쉴드:%d [%d(-%d)/%d]", boss.getSheild(), boss.getHp(),
-					power, currentBossHp);
+			String message = String.format("[HERO %d 데미지로 공격!] 푹 보스 좀비 체력: 쉴드:%d [%d/%d]", power, boss.getSheild(),
+					boss.getHp(), currentBossHp);
 
 			System.out.println(message);
 
@@ -38,7 +38,7 @@ public class Hero extends Unit {
 			} else {
 				target.setHp(-power);
 			}
-			String message = String.format("[HERO 공격] 푹 부하 좀비 체력: [%d(-%d)/%d]", target.getHp(), power,
+			String message = String.format("[HERO %d 데미지로 공격!] 푹 부하 좀비 체력: [%d/%d]", power, target.getHp(),
 					currentZombieHp);
 			System.out.println(message);
 		}
